@@ -1,25 +1,31 @@
 # Ember-hold-button
 
-This README outlines the details of collaborating on this Ember addon.
+Hold to confirm buttons, for ember-cli.
+
+![Rectangle Button](https://s3.amazonaws.com/f.cl.ly/items/2W2B3W1Y0F1Q3Y12192Z/Screen%20Recording%202015-07-31%20at%2002.41%20pm.gif)
+![Circle Button](https://s3.amazonaws.com/f.cl.ly/items/412P231Y2Q261o0U2s2g/Screen%20Recording%202015-07-31%20at%2002.41%20pm.gif)
 
 ## Installation
 
-* `git clone` this repository
-* `npm install`
-* `bower install`
+`ember install ember-hold-button`
 
-## Running
+## Usage
 
-* `ember server`
-* Visit your app at http://localhost:4200.
+`{{hold-button type="circle" action="finished"}}`
 
-## Running Tests
+```
+{{#hold-button type="rectangle" action="finished"}}
+  Hold to Delete
+{{/hold-button}}
+```
 
-* `ember test`
-* `ember test --server`
+## Options
 
-## Building
+Option | Description
+-------|-------------
+delay  | Time the button should be held for.
+action | The action to perform on completion.
+type   | Style of the button. `circle` or `rectangle`
+---------------------
 
-* `ember build`
 
-For more information on using ember-cli, visit [http://www.ember-cli.com/](http://www.ember-cli.com/).
