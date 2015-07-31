@@ -26,6 +26,5 @@ Option | Description
 delay  | Time the button should be held for.
 action | The action to perform on completion.
 type   | Style of the button. `circle` or `rectangle`
----------------------
 
 
