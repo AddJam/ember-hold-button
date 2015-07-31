@@ -21,7 +21,7 @@ There are two types of buttons out of the box; `circle` and `rectangle`.
 
 ### Rectangle
 ```
-{{#hold-button type="rectangle" action="finished"}}
+{{#hold-button type="rectangle" action="delete"}}
   Hold to Delete
 {{/hold-button}}
 ```
