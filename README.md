@@ -1,3 +1,5 @@
+[![npm version](https://badge.fury.io/js/ember-hold-button.svg)](http://badge.fury.io/js/ember-hold-button)
+
 # ember-hold-button
 
 Hold to confirm buttons, easily customisable, for ember-cli. After holding on the button for a specified amount of time, the given action is performed (e.g. hold to delete).
