@@ -94,6 +94,9 @@ CSS
 }
 ```
 
+## Compatibility
+CSS3 transitions are being used, so IE8/9 are out the window but other browsers should be fine. See [can I use this](http://caniuse.com/#search=transition).
+
 ## License
 
 The MIT License (MIT)
