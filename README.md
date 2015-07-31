@@ -1,4 +1,4 @@
-# Ember-hold-button
+# ember-hold-button
 
 Hold to confirm buttons, for ember-cli.
 
