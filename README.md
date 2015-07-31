@@ -1,6 +1,6 @@
 # ember-hold-button
 
-Hold to confirm buttons, for ember-cli.
+Hold to confirm buttons, for ember-cli. After holding on the button for a specified amount of time, the given action is performed (e.g. hold to delete).
 
 ![Rectangle Button](https://s3.amazonaws.com/f.cl.ly/items/2W2B3W1Y0F1Q3Y12192Z/Screen%20Recording%202015-07-31%20at%2002.41%20pm.gif)
 ![Circle Button](https://s3.amazonaws.com/f.cl.ly/items/412P231Y2Q261o0U2s2g/Screen%20Recording%202015-07-31%20at%2002.41%20pm.gif)
