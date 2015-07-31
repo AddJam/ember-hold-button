@@ -11,9 +11,15 @@ Hold to confirm buttons, easily customisable, for ember-cli. After holding on th
 
 ## Usage
 
-`{{hold-button type="circle" action="finished"}}`
+There are two types of buttons out of the box; `circle` and `rectangle`.
+
+### Circle
+`{{hold-button type="circle" action="finished"}}`    
+
 ![Circle Button](https://s3.amazonaws.com/f.cl.ly/items/412P231Y2Q261o0U2s2g/Screen%20Recording%202015-07-31%20at%2002.41%20pm.gif)
 
+
+### Rectangle
 ```
 {{#hold-button type="rectangle" action="finished"}}
   Hold to Delete
@@ -32,7 +38,7 @@ type   | Style of the button. `circle` or `rectangle`
 
 ## Styling
 
-The following are a few examples of how to style the button. The component is just a button tag containing the A yield and a span. The span is the part that animates.
+The following are a few examples of how to style the button. The component is just a button tag containing a yield and a span. The span is the part that animates.
 
 ```
 {{yield}}
@@ -43,6 +49,7 @@ The following are a few examples of how to style the button. The component is ju
 ### Full progress bar
 ![Full Progress Bar](https://s3.amazonaws.com/f.cl.ly/items/2u1i1q0B1R3j3z0N1O2k/Screen%20Recording%202015-07-31%20at%2004.25%20pm.gif)
 
+Template
 ```
 {{#hold-button type="rectangle" action="finished"}}
   Hold to Delete
@@ -66,6 +73,8 @@ CSS
 ### Reverse circle animation
 
 ![Reverse Circle Animation](https://s3.amazonaws.com/f.cl.ly/items/1N3B1i3G3X2J2J0Q3t27/Screen%20Recording%202015-07-31%20at%2004.31%20pm.gif)
+
+Template    
 
 `{{hold-button type="circle" action="finished"}}`
 
