@@ -1,0 +1,1 @@
+export { default } from 'ember-hold-button/components/hold-button';
