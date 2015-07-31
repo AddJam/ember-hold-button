@@ -1,0 +1,67 @@
+.ember-hold-button {
+  position: relative;
+  outline: none;
+  border-width: 0;
+  font-size: 1em;
+  background: transparent;
+}
+
+/* Circle */
+
+.ember-hold-button.circle {
+  border-radius: 50%;
+  border: 2px solid #6ba9f3;
+  height: 50px;
+  width: 50px;
+  background: transparent;
+  padding: 0;
+}
+
+.ember-hold-button.circle span {
+  font-size: 0;
+  background-color: #6ba9f3;
+  border-radius: 50%;
+  display: block;
+  height: 100%;
+  transform: scale(0.2);
+  transition: transform 250ms linear;
+  width: 100%;
+}
+
+.ember-hold-button.circle.is-holding span {
+  transform: scale(1);
+}
+
+.ember-hold-button.is-complete span {
+  transition: none;
+}
+
+/* Rectangle */
+.ember-hold-button.rectangle {
+  border-radius: 2px;
+  height: 40px;
+  line-height: 40px;
+  min-width: 100px;
+  text-align: center;
+  color: white;
+  background: #6ba9f3;
+  padding: 0 10px;
+}
+
+.ember-hold-button.rectangle span {
+  bottom: 0;
+  height: 4px;
+  left: 0;
+  position: absolute;
+  transition: width 250ms linear;
+  width: 0;
+  background-color: #003b80;
+}
+
+.ember-hold-button.rectangle.is-holding span {
+  width: 100%
+}
+
+.ember-hold-button.rectangle.is-complete span {
+  transition: none;
+}

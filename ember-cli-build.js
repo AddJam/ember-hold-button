@@ -2,14 +2,7 @@
 var EmberApp = require('ember-cli/lib/broccoli/ember-addon');
 
 module.exports = function(defaults) {
-  var app = new EmberApp(defaults, {
-    sassOptions: {
-      extension: 'scss'
-    },
-    minifyCSS: {
-      enabled: true
-    }
-  });
+  var app = new EmberApp(defaults, { });
 
   /*
     This build file specifes the options for the dummy test app of this
