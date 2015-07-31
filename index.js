@@ -5,8 +5,5 @@ module.exports = {
   name: 'ember-hold-button',
   included: function(app) {
     this._super.included.apply(this, arguments);
-  },
-  isDevelopingAddon: function() {
-    return true;
   }
 };
