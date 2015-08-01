@@ -39,7 +39,6 @@ export default Ember.Component.extend({
 
   startTimer() {
     if (!this.get('timer')) {
-      console.log("Starting timer");
       this.set('isComplete', false);
       this.set('isHolding', true);
 
@@ -53,7 +52,6 @@ export default Ember.Component.extend({
   },
 
   cancelTimer() {
-    console.log("Cancelling");
     this.set('isHolding', false);
     Ember.run.cancel(this.get('timer'));
     this.set('timer', null);
@@ -63,9 +61,7 @@ export default Ember.Component.extend({
   },
 
   timerFinished() {
-    console.log("Done");
     if (this.get('isHolding') && !this.get('isComplete')) {
-      console.log("Performing action");
       this.sendAction();
       this.set('isComplete', true);
       this.registerHandler();
