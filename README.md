@@ -31,11 +31,11 @@ There are two types of buttons out of the box; `circle` and `rectangle`.
 
 ## Options
 
-Option | Description
--------|-------------
-delay  | Time the button should be held for.
-action | The action to perform on completion.
-type   | Style of the button. `circle` or `rectangle`
+Option | Description                                          | Default
+-------|------------------------------------------------------|----------
+delay  | Time the button should be held for, in milliseconds. | `500`.
+action | The action to perform on completion.                 | `null`
+type   | Style of the button. `circle` or `rectangle`.        | `rectangle`
 
 
 ## Styling
