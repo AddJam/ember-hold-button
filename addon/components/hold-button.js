@@ -1,7 +1,6 @@
 import Ember from 'ember';
 import layout from '../templates/components/hold-button';
 
-
 export default Ember.Component.extend({
   layout: layout,
   tagName: 'button',
@@ -18,11 +17,12 @@ export default Ember.Component.extend({
 
   transitionStyle: Ember.computed('delay', function() {
     let delay = this.get('delay');
-    let durations = Ember.EnumerableUtils.map([
+
+    let durations = [
       '-webkit-transition-duration',
       '-moz-transition-duration',
       'transition-duration'
-    ], function(property) {
+    ].map((property) => {
       return property + ': ' + delay + 'ms';
     }).join(';');
 
