@@ -65,3 +65,41 @@
 .ember-hold-button.rectangle.is-complete span {
   transition: none;
 }
+
+/* Borderj Circle */
+.ember-hold-button.border-circle {
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+  background: transparent;
+  border: 5px solid red;
+}
+
+.ember-hold-button.border-circle span {
+  display: none;
+}
+
+.ember-hold-button.border-circle.is-holding {
+  animation: border-progress 800ms ease-in forwards;
+}
+
+@keyframes border-progress {
+  25% {
+    border-top-color: transparent;
+  }
+  50% {
+    border-top-color: transparent;
+    border-right-color: transparent;
+  }
+  75% {
+    border-top-color: transparent;
+    border-right-color: transparent;
+    border-bottom-color: transparent;
+  }
+  100% {
+    border-top-color: transparent;
+    border-right-color: transparent;
+    border-bottom-color: transparent;
+    border-left-color: transparent;
+  }
+}
