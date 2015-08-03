@@ -6,6 +6,7 @@ Hold to confirm buttons, easily customisable, for ember-cli. After holding on th
 
 ![Rectangle Button](https://s3.amazonaws.com/f.cl.ly/items/2W2B3W1Y0F1Q3Y12192Z/Screen%20Recording%202015-07-31%20at%2002.41%20pm.gif)
 ![Circle Button](https://s3.amazonaws.com/f.cl.ly/items/412P231Y2Q261o0U2s2g/Screen%20Recording%202015-07-31%20at%2002.41%20pm.gif)
+![Border Circle Button](https://s3.amazonaws.com/f.cl.ly/items/3c2n3k08042R230Q3y2I/Screen%20Recording%202015-08-03%20at%2002.04%20pm.gif)
 
 ## Installation
 
@@ -13,13 +14,7 @@ Hold to confirm buttons, easily customisable, for ember-cli. After holding on th
 
 ## Usage
 
-There are two types of buttons out of the box; `circle` and `rectangle`.
-
-### Circle
-`{{hold-button type="circle" action="finished"}}`    
-
-![Circle Button](https://s3.amazonaws.com/f.cl.ly/items/412P231Y2Q261o0U2s2g/Screen%20Recording%202015-07-31%20at%2002.41%20pm.gif)
-
+There are a few types of buttons out of the box; `rectangle`, `circle`, and `border-circle`.
 
 ### Rectangle
 ```
@@ -29,13 +24,23 @@ There are two types of buttons out of the box; `circle` and `rectangle`.
 ```
 ![Rectangle Button](https://s3.amazonaws.com/f.cl.ly/items/2W2B3W1Y0F1Q3Y12192Z/Screen%20Recording%202015-07-31%20at%2002.41%20pm.gif)
 
+### Circle
+`{{hold-button type="circle" action="finished"}}`    
+
+![Circle Button](https://s3.amazonaws.com/f.cl.ly/items/412P231Y2Q261o0U2s2g/Screen%20Recording%202015-07-31%20at%2002.41%20pm.gif)
+
+### Border Circle
+`{{hold-button delay=800 type='border-circle' action='finished'}}`
+
+![Border Circle Button](https://s3.amazonaws.com/f.cl.ly/items/3c2n3k08042R230Q3y2I/Screen%20Recording%202015-08-03%20at%2002.04%20pm.gif)
+
 ## Options
 
 Option | Description                                          | Default
 -------|------------------------------------------------------|----------
 delay  | Time the button should be held for, in milliseconds. | `500`.
 action | The action to perform on completion.                 | `null`
-type   | Style of the button. `circle` or `rectangle`.        | `rectangle`
+type   | Style of the button. `circle`, `border-circle` or `rectangle`.        | `rectangle`
 
 
 ## Styling
@@ -47,6 +52,7 @@ The following are a few examples of how to style the button. The component is ju
 <span></span>
 ```
 
+When you specify a `type` for the hold-button, that type becomes a class for the component. So you could specify a custom type (e'g' `type='my-cool-button'`) to customise from scratch.
 
 ### Full progress bar
 ![Full Progress Bar](https://s3.amazonaws.com/f.cl.ly/items/2u1i1q0B1R3j3z0N1O2k/Screen%20Recording%202015-07-31%20at%2004.25%20pm.gif)
