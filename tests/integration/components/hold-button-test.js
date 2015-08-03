@@ -2,6 +2,12 @@ import { moduleForComponent, test } from 'ember-qunit';
 import hbs from 'htmlbars-inline-precompile';
 import Ember from 'ember';
 
+Ember.Test.registerAsyncHelper('sleep', function(app, duration) {
+  return new Ember.RSVP.Promise(function(resolve) {
+    setTimeout(resolve, duration);
+  });
+});
+
 moduleForComponent('hold-button', 'Integration | Component | hold button', {
   integration: true
 });
@@ -26,7 +32,7 @@ test('it renders', function(assert) {
 });
 
 test('it calls the action', function(assert) {
-  assert.expect(5);
+  assert.expect(4);
   this.render(hbs`{{hold-button delay=0 action='finished'}}`);
   let $component = this.$('.ember-hold-button');
 
@@ -43,12 +49,7 @@ test('it calls the action', function(assert) {
     Ember.run.later(() => {
       assert.ok(!$component.hasClass('is-holding'), "is-holding class removed");
       assert.ok($component.hasClass('is-complete'), "is-complete class added");
-      assert.ok(finished, "finished action called");
-
-      $component.mousedown();
-      Ember.run.later(() => {
-        assert.ok(!$component.hasClass('is-complete'), "is-complete class removed");
-      });
+      assert.ok(finished, "finished action called", "finish called");
     });
   });
 });
