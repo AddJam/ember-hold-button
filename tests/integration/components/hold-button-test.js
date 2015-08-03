@@ -31,6 +31,14 @@ test('it renders', function(assert) {
   assert.equal(this.$().text().trim(), 'template block text');
 });
 
+test('animation time set on inline style', function(assert) {
+  this.render(hbs`{{hold-button delay=600 action='finished'}}`);
+  let $span = this.$('.ember-hold-button > span');
+
+  let duration = $span.css('transition-duration');
+  assert.equal(duration.indexOf("0.6"), 0);
+});
+
 test('it calls the action', function(assert) {
   assert.expect(4);
   this.render(hbs`{{hold-button delay=0 action='finished'}}`);
