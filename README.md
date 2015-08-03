@@ -1,4 +1,5 @@
 [![npm version](https://badge.fury.io/js/ember-hold-button.svg)](http://badge.fury.io/js/ember-hold-button)
+[![Travis CI](https://travis-ci.org/AddJam/ember-hold-button.svg)](https://travis-ci.org/AddJam/ember-hold-button)
 
 # ember-hold-button
 
