@@ -6,6 +6,15 @@
   background: transparent;
 }
 
+.ember-hold-button span {
+  -webkit-transition-duration: inherit;
+  -moz-transition-duration: inherit;
+  transition-duration: inherit;
+  -webkit-animation-duration: inherit;
+  -moz-animation-duration: inherit;
+  animation-duration: inherit;
+}
+
 /* Circle */
 
 .ember-hold-button.circle {
@@ -24,7 +33,8 @@
   display: block;
   height: 100%;
   transform: scale(0.2);
-  transition: transform 250ms linear;
+  transition-property: transform;
+  transition-timing-function: linear;
   width: 100%;
 }
 
@@ -53,7 +63,8 @@
   height: 4px;
   left: 0;
   position: absolute;
-  transition: width 250ms linear;
+  transition-property: width;
+  transition-timing-function: linear;
   width: 0;
   background-color: #003b80;
 }
@@ -80,7 +91,10 @@
 }
 
 .ember-hold-button.border-circle.is-holding {
-  animation: border-progress 800ms ease-in forwards;
+  animation-name: border-progress;
+  animation-duration: inherit;
+  animation-timing-function: ease-in;
+  animation-fill-mode: forwards;
 }
 
 @keyframes border-progress {

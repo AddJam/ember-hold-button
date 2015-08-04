@@ -6,6 +6,7 @@ export default Ember.Component.extend({
   tagName: 'button',
   classNames: ['ember-hold-button'],
   classNameBindings: ['isHolding', 'isComplete', 'type'],
+  attributeBindings: ['style'],
 
   delay: 500,
   action: null,
@@ -15,13 +16,16 @@ export default Ember.Component.extend({
   isHolding: false,
   isComplete: false,
 
-  transitionStyle: Ember.computed('delay', function() {
+  style: Ember.computed('delay', function() {
     let delay = this.get('delay');
 
     let durations = [
       '-webkit-transition-duration',
       '-moz-transition-duration',
-      'transition-duration'
+      'transition-duration',
+      '-webkit-animation-duration',
+      '-moz-animation-duration',
+      'animation-duration'
     ].map((property) => {
       return property + ': ' + delay + 'ms';
     }).join(';');
