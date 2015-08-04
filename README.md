@@ -43,6 +43,9 @@ delay  | Time the button should be held for, in milliseconds. | `500`.
 action | The action to perform on completion.                 | `null`
 type   | Style of the button. `circle`, `border-circle` or `rectangle`.        | `rectangle`
 
+You can also pass arguments to the component which will then be passed to the action.
+
+`{{hold-button model action="save" type="rectangle"}}`
 
 ## Styling
 
