@@ -1,7 +1,11 @@
 import Ember from 'ember';
 import layout from '../templates/components/hold-button';
 
-export default Ember.Component.extend({
+var positionalParams = {
+  positionalParams: 'params'
+};
+
+var HoldButtonComponent = Ember.Component.extend(positionalParams, {
   layout: layout,
   tagName: 'button',
   classNames: ['ember-hold-button'],
@@ -9,7 +13,6 @@ export default Ember.Component.extend({
   attributeBindings: ['style'],
 
   delay: 500,
-  action: null,
   type: 'rectangle',
 
   timer: null,
@@ -66,9 +69,14 @@ export default Ember.Component.extend({
 
   timerFinished() {
     if (this.get('isHolding') && !this.get('isComplete')) {
-      this.sendAction();
+      const params = this.getWithDefault('params', []);
+      const actionParams = ['action', ...params];
+      this.sendAction(...actionParams);
       this.set('isComplete', true);
       this.registerHandler();
     }
   }
 });
+
+HoldButtonComponent.reopenClass(positionalParams);
+export default HoldButtonComponent;

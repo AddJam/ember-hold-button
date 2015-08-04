@@ -68,3 +68,17 @@ test('type reflects CSS class', function(assert) {
   let $component = this.$('.ember-hold-button');
   assert.ok($component.hasClass('banana'), "type class added");
 });
+
+test('extra params are returned with action', function(assert) {
+  assert.expect(1);
+  this.on('finished', function(params) {
+    assert.equal(params, "cheese");
+  });
+  this.render(hbs`{{hold-button "cheese" delay=0 action='finished' type='banana'}}`);
+  let $component = this.$('.ember-hold-button');
+  $component.mousedown();
+
+  Ember.run.later(() => {
+    $component.mouseup();
+  });
+});
