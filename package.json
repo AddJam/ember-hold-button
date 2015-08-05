@@ -1,6 +1,6 @@
 {
   "name": "ember-hold-button",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Hold to confirm buttons for ember-cli. Avoid intrusive modals.",
   "directories": {
     "doc": "doc",
