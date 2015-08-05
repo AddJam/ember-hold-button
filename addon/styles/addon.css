@@ -7,8 +7,10 @@
 }
 
 .ember-hold-button span {
-  transition-duration: inherit;
-  animation-duration: inherit;
+  -webkit-transition-duration: inherit;
+          transition-duration: inherit;
+  -webkit-animation-duration: inherit;
+          animation-duration: inherit;
 }
 
 /* Circle */
@@ -28,18 +30,25 @@
   border-radius: 50%;
   display: block;
   height: 100%;
-  transform: scale(0.2);
-  transition-property: transform;
-  transition-timing-function: linear;
+  -webkit-transform: scale(0.2);
+      -ms-transform: scale(0.2);
+          transform: scale(0.2);
+  -webkit-transition-property: -webkit-transform;
+          transition-property: transform;
+  -webkit-transition-timing-function: linear;
+          transition-timing-function: linear;
   width: 100%;
 }
 
 .ember-hold-button.circle.is-holding span {
-  transform: scale(1);
+  -webkit-transform: scale(1);
+      -ms-transform: scale(1);
+          transform: scale(1);
 }
 
 .ember-hold-button.circle.is-complete span {
-  transition: none;
+  -webkit-transition: none;
+          transition: none;
 }
 
 /* Rectangle */
@@ -59,8 +68,10 @@
   height: 4px;
   left: 0;
   position: absolute;
-  transition-property: width;
-  transition-timing-function: linear;
+  -webkit-transition-property: width;
+          transition-property: width;
+  -webkit-transition-timing-function: linear;
+          transition-timing-function: linear;
   width: 0;
   background-color: #003b80;
 }
@@ -70,7 +81,8 @@
 }
 
 .ember-hold-button.rectangle.is-complete span {
-  transition: none;
+  -webkit-transition: none;
+          transition: none;
 }
 
 /* Border Circle */
@@ -87,10 +99,35 @@
 }
 
 .ember-hold-button.border-circle.is-holding {
-  animation-name: border-progress;
-  animation-duration: inherit;
-  animation-timing-function: ease-in;
-  animation-fill-mode: none;
+  -webkit-animation-name: border-progress;
+          animation-name: border-progress;
+  -webkit-animation-duration: inherit;
+          animation-duration: inherit;
+  -webkit-animation-timing-function: ease-in;
+          animation-timing-function: ease-in;
+  -webkit-animation-fill-mode: none;
+          animation-fill-mode: none;
+}
+
+@-webkit-keyframes border-progress {
+  25% {
+    border-top-color: transparent;
+  }
+  50% {
+    border-top-color: transparent;
+    border-right-color: transparent;
+  }
+  75% {
+    border-top-color: transparent;
+    border-right-color: transparent;
+    border-bottom-color: transparent;
+  }
+  100% {
+    border-top-color: transparent;
+    border-right-color: transparent;
+    border-bottom-color: transparent;
+    border-left-color: transparent;
+  }
 }
 
 @keyframes border-progress {
