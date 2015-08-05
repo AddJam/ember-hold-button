@@ -7,11 +7,7 @@
 }
 
 .ember-hold-button span {
-  -webkit-transition-duration: inherit;
-  -moz-transition-duration: inherit;
   transition-duration: inherit;
-  -webkit-animation-duration: inherit;
-  -moz-animation-duration: inherit;
   animation-duration: inherit;
 }
 
@@ -42,7 +38,7 @@
   transform: scale(1);
 }
 
-.ember-hold-button.is-complete span {
+.ember-hold-button.circle.is-complete span {
   transition: none;
 }
 
@@ -77,7 +73,7 @@
   transition: none;
 }
 
-/* Borderj Circle */
+/* Border Circle */
 .ember-hold-button.border-circle {
   border-radius: 50%;
   height: 50px;
@@ -94,7 +90,7 @@
   animation-name: border-progress;
   animation-duration: inherit;
   animation-timing-function: ease-in;
-  animation-fill-mode: forwards;
+  animation-fill-mode: none;
 }
 
 @keyframes border-progress {

@@ -42,6 +42,11 @@ var HoldButtonComponent = Ember.Component.extend(positionalParams, {
 
   registerHandler() {
     this.on('mouseDown', this, this.startTimer);
+    this.on('touchStart', this, (e) => {
+      e.stopPropagation();
+      e.preventDefault();
+      this.startTimer();
+    });
   },
 
   startTimer() {
@@ -52,6 +57,8 @@ var HoldButtonComponent = Ember.Component.extend(positionalParams, {
       this.off('mouseDown');
       this.on('mouseUp', this, this.cancelTimer);
       this.on('mouseLeave', this, this.cancelTimer);
+      this.on('touchEnd', this, this.cancelTimer);
+      this.on('touchCancel', this, this.cancelTimer);
 
       let timer = Ember.run.later(this, this.timerFinished, this.get('delay'));
       this.set('timer', timer);
@@ -64,6 +71,8 @@ var HoldButtonComponent = Ember.Component.extend(positionalParams, {
     this.set('timer', null);
     this.off('mouseUp');
     this.off('mouseLeave');
+    this.off('touchEnd');
+    this.off('touchCancel');
     this.registerHandler();
   },
 

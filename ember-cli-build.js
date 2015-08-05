@@ -2,7 +2,12 @@
 var EmberApp = require('ember-cli/lib/broccoli/ember-addon');
 
 module.exports = function(defaults) {
-  var app = new EmberApp(defaults, { });
+  var app = new EmberApp(defaults, {
+    autoprefixer: {
+      browsers: ['last 2 ios version'],
+      cascade: false
+    }
+  });
 
   /*
     This build file specifes the options for the dummy test app of this

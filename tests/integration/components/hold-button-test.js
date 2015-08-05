@@ -71,7 +71,7 @@ test('type reflects CSS class', function(assert) {
 
 test('extra params are returned with action', function(assert) {
   assert.expect(1);
-  this.on('finished', function(params) {
+  this.on('finished', (params) => {
     assert.equal(params, "cheese");
   });
   this.render(hbs`{{hold-button "cheese" delay=0 action='finished' type='banana'}}`);
@@ -80,5 +80,25 @@ test('extra params are returned with action', function(assert) {
 
   Ember.run.later(() => {
     $component.mouseup();
+  });
+});
+
+test('touch events work correctly', function(assert) {
+  assert.expect(3);
+  this.on('finished', () => {
+    assert.ok(true, "Action triggered");
+  });
+
+  this.render(hbs`{{hold-button delay=0 action='finished'}}`);
+  let $component = this.$('.ember-hold-button');
+  $component.trigger("touchstart");
+
+  Ember.run.next(() => {
+    assert.ok($component.hasClass('is-holding'), "Class added while holding");
+    $component.trigger("touchend");
+
+    Ember.run.next(() => {
+      assert.ok($component.hasClass('is-complete'), "Class added when complete");
+    });
   });
 });
