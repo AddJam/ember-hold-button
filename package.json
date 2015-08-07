@@ -18,7 +18,7 @@
   "engines": {
     "node": ">= 0.10.0"
   },
-  "author": "",
+  "author": "Add Jam",
   "license": "MIT",
   "devDependencies": {
     "broccoli-asset-rev": "^2.0.2",
