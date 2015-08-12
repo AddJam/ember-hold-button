@@ -58,6 +58,8 @@ The following are a few examples of how to style the button. The component is ju
 
 When you specify a `type` for the hold-button, that type becomes a class for the component. So you could specify a custom type (e.g. `type='my-cool-button'`) to customise from scratch.
 
+The button always has the CSS class `ember-hold-button`, and also has `is-holding` while it is being held and `is-complete` upon completion. These are bound to the `isHolding` and `isComplete` attributes respectively, if you want to take control of this.
+
 ### Full progress bar
 ![Full Progress Bar](https://s3.amazonaws.com/f.cl.ly/items/2u1i1q0B1R3j3z0N1O2k/Screen%20Recording%202015-07-31%20at%2004.25%20pm.gif)
 
