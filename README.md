@@ -111,6 +111,10 @@ CSS
 ## Compatibility
 CSS3 transitions are being used, so IE8/9 are out the window but other browsers should be fine. See [can I use this](http://caniuse.com/#search=transition).
 
+## Other Resources
+
+* [Emberscreencasts demonstration of ember-hold-button](https://www.emberscreencasts.com/posts/70-ember-hold-button)
+
 ## License
 
 The MIT License (MIT)
