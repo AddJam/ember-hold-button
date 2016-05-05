@@ -8,6 +8,7 @@ Hold to confirm buttons, easily customisable, for ember-cli. After holding on th
 ![Rectangle Button](https://s3.amazonaws.com/f.cl.ly/items/2W2B3W1Y0F1Q3Y12192Z/Screen%20Recording%202015-07-31%20at%2002.41%20pm.gif)
 ![Circle Button](https://s3.amazonaws.com/f.cl.ly/items/412P231Y2Q261o0U2s2g/Screen%20Recording%202015-07-31%20at%2002.41%20pm.gif)
 ![Border Circle Button](https://s3.amazonaws.com/f.cl.ly/items/3c2n3k08042R230Q3y2I/Screen%20Recording%202015-08-03%20at%2002.04%20pm.gif)
+![Modified Rectangle Button](https://s3.amazonaws.com/f.cl.ly/items/0b2p2W1G24113b07451i/Screen%20Recording%202016-05-05%20at%2010.49%20am.gif?v=07d4f6b3)
 
 ## Installation
 
@@ -105,6 +106,64 @@ CSS
 
 .ember-hold-button.circle.is-holding span {
   transform: scale(0);
+}
+```
+
+### Completion styling
+![Rectangle Button with Completion Style](https://s3.amazonaws.com/f.cl.ly/items/0b2p2W1G24113b07451i/Screen%20Recording%202016-05-05%20at%2010.49%20am.gif?v=07d4f6b3)
+
+This one modifies the rectangle style to animate the progress bar height instead of width and places text in pseudoelements.
+
+Template
+
+`{{hold-button action="finished"}}`
+
+CSS
+```
+
+.ember-hold-button.rectangle {
+  width: 160px;
+}
+
+.ember-hold-button.rectangle span {
+  height: 0;
+  transition-property: height;
+  width: 100%;
+  z-index: 0;
+}
+
+.ember-hold-button.rectangle.is-holding span {
+  height: 100%;
+}
+
+.ember-hold-button.rectangle:before {
+  content: 'Hold to delete';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+}
+
+.ember-hold-button.rectangle:after {
+  content: 'Deleted ✓';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #2ECC71;
+  transition: 0.4s;
+}
+
+.ember-hold-button.rectangle.is-complete:after {
+  opacity: 1;
+}
+
+.ember-hold-button.rectangle.is-complete:before {
+  content: '';
 }
 ```
 
