@@ -40,6 +40,7 @@ test('animation time set on inline style', function(assert) {
 });
 
 test('it calls the action', function(assert) {
+  const done = assert.async();
   assert.expect(4);
   this.render(hbs`{{hold-button delay=0 action='finished'}}`);
   let $component = this.$('.ember-hold-button');
@@ -58,6 +59,7 @@ test('it calls the action', function(assert) {
       assert.ok(!$component.hasClass('is-holding'), "is-holding class removed");
       assert.ok($component.hasClass('is-complete'), "is-complete class added");
       assert.ok(finished, "finished action called", "finish called");
+      done();
     });
   });
 });
@@ -84,6 +86,7 @@ test('extra params are returned with action', function(assert) {
 });
 
 test('touch events work correctly', function(assert) {
+  const done = assert.async();
   assert.expect(3);
   this.on('finished', () => {
     assert.ok(true, "Action triggered");
@@ -99,6 +102,7 @@ test('touch events work correctly', function(assert) {
 
     Ember.run.next(() => {
       assert.ok($component.hasClass('is-complete'), "Class added when complete");
+      done();
     });
   });
 });
