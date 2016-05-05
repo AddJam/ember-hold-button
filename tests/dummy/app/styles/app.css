@@ -1,0 +1,48 @@
+body {
+  margin: 10px;
+}
+
+.ember-hold-button.rectangle {
+  width: 160px;
+}
+
+.ember-hold-button.rectangle span {
+  height: 0;
+  transition-property: height;
+  width: 100%;
+  z-index: 0;
+}
+
+.ember-hold-button.rectangle.is-holding span {
+  height: 100%;
+}
+
+.ember-hold-button.rectangle:before {
+  content: 'Hold to delete';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+}
+
+.ember-hold-button.rectangle:after {
+  content: 'Deleted ✓';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #2ECC71;
+  transition: 0.4s;
+}
+
+.ember-hold-button.rectangle.is-complete:after {
+  opacity: 1;
+}
+
+.ember-hold-button.rectangle.is-complete:before {
+  content: '';
+}

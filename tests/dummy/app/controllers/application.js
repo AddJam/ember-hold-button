@@ -8,6 +8,10 @@ export default Ember.Controller.extend({
       } else {
         alert("Pewwww");
       }
+    },
+
+    success() {
+      console.log('yay');
     }
   }
 });

@@ -1,8 +1,7 @@
 <h1>Ember Hold Button</h1>
 
 <h3>Rectangle</h3>
-{{#hold-button "cheese" delay=200 action='finished'}}
-  Hold to delete
+{{#hold-button "cheese" delay=400 action=(action 'success')}}
 {{/hold-button}}
 
 <h3>Circle</h3>
