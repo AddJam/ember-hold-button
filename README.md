@@ -19,30 +19,34 @@ Hold to confirm buttons, easily customisable, for ember-cli. After holding on th
 There are a few types of buttons out of the box; `rectangle`, `circle`, and `border-circle`.
 
 ### Rectangle
+
 ```
 {{#hold-button type="rectangle" action="delete"}}
   Hold to Delete
 {{/hold-button}}
 ```
+
 ![Rectangle Button](https://s3.amazonaws.com/f.cl.ly/items/2W2B3W1Y0F1Q3Y12192Z/Screen%20Recording%202015-07-31%20at%2002.41%20pm.gif)
 
 ### Circle
-`{{hold-button type="circle" action="finished"}}`    
+
+`{{hold-button type="circle" action="finished"}}`
 
 ![Circle Button](https://s3.amazonaws.com/f.cl.ly/items/412P231Y2Q261o0U2s2g/Screen%20Recording%202015-07-31%20at%2002.41%20pm.gif)
 
 ### Border Circle
+
 `{{hold-button delay=800 type='border-circle' action='finished'}}`
 
 ![Border Circle Button](https://s3.amazonaws.com/f.cl.ly/items/3c2n3k08042R230Q3y2I/Screen%20Recording%202015-08-03%20at%2002.04%20pm.gif)
 
 ## Options
 
-Option | Description                                          | Default
--------|------------------------------------------------------|----------
-delay  | Time the button should be held for, in milliseconds. | `500`.
-action | The action to perform on completion.                 | `null`
-type   | Style of the button. `circle`, `border-circle` or `rectangle`.        | `rectangle`
+| Option | Description                                                    | Default     |
+| ------ | -------------------------------------------------------------- | ----------- |
+| delay  | Time the button should be held for, in milliseconds.           | `500`.      |
+| action | The action to perform on completion.                           | `null`      |
+| type   | Style of the button. `circle`, `border-circle` or `rectangle`. | `rectangle` |
 
 You can also pass arguments to the component which will then be passed to the action.
 
@@ -62,9 +66,11 @@ When you specify a `type` for the hold-button, that type becomes a class for the
 The button always has the CSS class `ember-hold-button`, and also has `is-holding` while it is being held and `is-complete` upon completion. These are bound to the `isHolding` and `isComplete` attributes respectively, if you want to take control of this.
 
 ### Full progress bar
+
 ![Full Progress Bar](https://s3.amazonaws.com/f.cl.ly/items/2u1i1q0B1R3j3z0N1O2k/Screen%20Recording%202015-07-31%20at%2004.25%20pm.gif)
 
 Template
+
 ```
 {{#hold-button type="rectangle" action="finished"}}
   Hold to Delete
@@ -72,6 +78,7 @@ Template
 ```
 
 CSS
+
 ```
 .ember-hold-button.rectangle {
   background: transparent;
@@ -89,11 +96,12 @@ CSS
 
 ![Reverse Circle Animation](https://s3.amazonaws.com/f.cl.ly/items/1N3B1i3G3X2J2J0Q3t27/Screen%20Recording%202015-07-31%20at%2004.31%20pm.gif)
 
-Template    
+Template
 
 `{{hold-button type="circle" action="finished"}}`
 
 CSS
+
 ```
 .ember-hold-button.circle {
   border-color: orange;
@@ -110,6 +118,7 @@ CSS
 ```
 
 ### Completion styling
+
 ![Rectangle Button with Completion Style](https://s3.amazonaws.com/f.cl.ly/items/0b2p2W1G24113b07451i/Screen%20Recording%202016-05-05%20at%2010.49%20am.gif?v=07d4f6b3)
 
 This one modifies the rectangle style to animate the progress bar height instead of width and places text in pseudoelements.
@@ -119,8 +128,8 @@ Template
 `{{hold-button action="finished"}}`
 
 CSS
-```
 
+```
 .ember-hold-button.rectangle {
   width: 160px;
 }
@@ -168,20 +177,40 @@ CSS
 ```
 
 ## Compatibility
+
 CSS3 transitions are being used, so IE8/9 are out the window but other browsers should be fine. See [can I use this](http://caniuse.com/#search=transition).
 
 ## Other Resources
 
-* [Emberscreencasts demonstration of ember-hold-button](https://www.emberscreencasts.com/posts/70-ember-hold-button)
+- [Emberscreencasts demonstration of ember-hold-button](https://www.emberscreencasts.com/posts/70-ember-hold-button)
 
-## License
+## Contributing
 
-The MIT License (MIT)
+### Installation
 
-Copyright (c) 2015
+- `git clone <repository-url>`
+- `cd my-addon`
+- `npm install`
 
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+### Linting
 
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+- `npm run lint:hbs`
+- `npm run lint:js`
+- `npm run lint:js -- --fix`
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+### Running tests
+
+- `ember test` – Runs the test suite on the current Ember version
+- `ember test --server` – Runs the test suite in "watch mode"
+- `ember try:each` – Runs the test suite against multiple Ember versions
+
+### Running the dummy application
+
+- `ember serve`
+- Visit the dummy application at [http://localhost:4200](http://localhost:4200).
+
+For more information on using ember-cli, visit [https://ember-cli.com/](https://ember-cli.com/).
+
+## License
+
+This project is licensed under the [MIT License](LICENSE.md).

@@ -1,16 +1,17 @@
-import Ember from 'ember';
+import Controller from '@ember/controller';
 
-export default Ember.Controller.extend({
+export default Controller.extend({
   actions: {
     finished(text) {
       if (text) {
-        alert("PEW! " + text);
+        alert('PEW! ' + text);
       } else {
-        alert("Pewwww");
+        alert('Pewwww');
       }
     },
 
     success() {
+      // eslint-disable-next-line
       console.log('yay');
     }
   }
