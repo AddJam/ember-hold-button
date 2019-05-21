@@ -20,7 +20,7 @@ There are a few types of buttons out of the box; `rectangle`, `circle`, and `bor
 
 ### Rectangle
 
-```
+```hbs
 {{#hold-button type="rectangle" action="delete"}}
   Hold to Delete
 {{/hold-button}}
@@ -30,13 +30,17 @@ There are a few types of buttons out of the box; `rectangle`, `circle`, and `bor
 
 ### Circle
 
-`{{hold-button type="circle" action="finished"}}`
+```hbs
+{{hold-button type="circle" action="finished"}}
+```
 
 ![Circle Button](https://s3.amazonaws.com/f.cl.ly/items/412P231Y2Q261o0U2s2g/Screen%20Recording%202015-07-31%20at%2002.41%20pm.gif)
 
 ### Border Circle
 
-`{{hold-button delay=800 type='border-circle' action='finished'}}`
+```hbs
+{{hold-button delay=800 type='border-circle' action='finished'}}
+```
 
 ![Border Circle Button](https://s3.amazonaws.com/f.cl.ly/items/3c2n3k08042R230Q3y2I/Screen%20Recording%202015-08-03%20at%2002.04%20pm.gif)
 
@@ -50,13 +54,15 @@ There are a few types of buttons out of the box; `rectangle`, `circle`, and `bor
 
 You can also pass arguments to the component which will then be passed to the action.
 
-`{{hold-button model action="save" type="rectangle"}}`
+```hbs
+{{hold-button model action="save" type="rectangle"}}
+```
 
 ## Styling
 
 The following are a few examples of how to style the button. The component is just a button tag containing a yield and a span. The span is the part that animates.
 
-```
+```hbs
 {{yield}}
 <span></span>
 ```
@@ -71,7 +77,7 @@ The button always has the CSS class `ember-hold-button`, and also has `is-holdin
 
 Template
 
-```
+```hbs
 {{#hold-button type="rectangle" action="finished"}}
   Hold to Delete
 {{/hold-button}}
@@ -79,7 +85,7 @@ Template
 
 CSS
 
-```
+```css
 .ember-hold-button.rectangle {
   background: transparent;
   color: #aaa;
@@ -98,11 +104,13 @@ CSS
 
 Template
 
-`{{hold-button type="circle" action="finished"}}`
+```hbs
+{{hold-button type="circle" action="finished"}}
+```
 
 CSS
 
-```
+```css
 .ember-hold-button.circle {
   border-color: orange;
 }
@@ -125,11 +133,13 @@ This one modifies the rectangle style to animate the progress bar height instead
 
 Template
 
-`{{hold-button action="finished"}}`
+```hbs
+{{hold-button action="finished"}}
+```
 
 CSS
 
-```
+```css
 .ember-hold-button.rectangle {
   width: 160px;
 }
