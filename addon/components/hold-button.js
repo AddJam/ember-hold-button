@@ -48,11 +48,13 @@ var HoldButtonComponent = Component.extend(positionalParams, {
 
   registerHandler() {
     this.on('mouseDown', this, this.startTimer);
-    this.on('touchStart', this, e => {
-      e.stopPropagation();
-      e.preventDefault();
-      this.startTimer();
-    });
+    this.on('touchStart', this, this.startTouchTimer);
+  },
+
+  startTouchTimer(e) {
+    e.stopPropagation();
+    e.preventDefault();
+    this.startTimer();
   },
 
   startTimer() {
@@ -60,7 +62,9 @@ var HoldButtonComponent = Component.extend(positionalParams, {
       this.set('isComplete', false);
       this.set('isHolding', true);
 
-      this.off('mouseDown');
+      this.off('mouseDown', this, this.startTimer);
+      this.off('touchStart', this, this.startTouchTimer);
+
       this.on('mouseUp', this, this.cancelTimer);
       this.on('mouseLeave', this, this.cancelTimer);
       this.on('touchEnd', this, this.cancelTimer);
@@ -75,10 +79,10 @@ var HoldButtonComponent = Component.extend(positionalParams, {
     this.set('isHolding', false);
     cancel(this.get('timer'));
     this.set('timer', null);
-    this.off('mouseUp');
-    this.off('mouseLeave');
-    this.off('touchEnd');
-    this.off('touchCancel');
+    this.off('mouseUp', this, this.cancelTimer);
+    this.off('mouseLeave', this, this.cancelTimer);
+    this.off('touchEnd', this, this.cancelTimer);
+    this.off('touchCancel', this, this.cancelTimer);
     this.registerHandler();
   },
 
