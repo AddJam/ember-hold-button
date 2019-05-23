@@ -1,4 +1,3 @@
-import { later, next } from '@ember/runloop';
 import { Promise } from 'rsvp';
 import { registerAsyncHelper } from '@ember/test';
 import { module, test } from 'qunit';
@@ -55,7 +54,6 @@ module('Integration | Component | hold button', function(hooks) {
   });
 
   test('it calls the action', async function(assert) {
-    const done = assert.async();
     assert.expect(4);
     await render(hbs`{{hold-button delay=0 action='finished'}}`);
     let el = find('.ember-hold-button');
@@ -65,24 +63,21 @@ module('Integration | Component | hold button', function(hooks) {
       finished = true;
     };
 
-    triggerEvent(el, 'mousedown');
-    later(() => {
-      assert.ok(el.classList.contains('is-holding'), 'is-holding class added');
-      triggerEvent(el, 'mouseup');
+    await triggerEvent(el, 'mousedown');
 
-      later(() => {
-        assert.ok(
-          !el.classList.contains('is-holding'),
-          'is-holding class removed'
-        );
-        assert.ok(
-          el.classList.contains('is-complete'),
-          'is-complete class added'
-        );
-        assert.ok(finished, 'finished action called', 'finish called');
-        done();
-      });
-    });
+    assert.ok(el.classList.contains('is-holding'), 'is-holding class added');
+
+    await triggerEvent(el, 'mouseup');
+
+    assert.ok(
+      !el.classList.contains('is-holding'),
+      'is-holding class removed'
+    );
+    assert.ok(
+      el.classList.contains('is-complete'),
+      'is-complete class added'
+    );
+    assert.ok(finished, 'finished action called', 'finish called');
   });
 
   test('type reflects CSS class', async function(assert) {
@@ -101,38 +96,32 @@ module('Integration | Component | hold button', function(hooks) {
       hbs`{{hold-button "cheese" delay=0 action='finished' type='banana'}}`
     );
     let el = find('.ember-hold-button');
-    triggerEvent(el, 'mousedown');
-
-    later(() => {
-      triggerEvent(el, 'mouseup');
-    });
+    await triggerEvent(el, 'mousedown');
+    await triggerEvent(el, 'mouseup');
   });
 
   test('touch events work correctly', async function(assert) {
-    const done = assert.async();
     assert.expect(3);
+
     this.actions.finished = () => {
       assert.ok(true, 'Action triggered');
     };
 
     await render(hbs`{{hold-button delay=0 action='finished'}}`);
+
     let el = find('.ember-hold-button');
-    triggerEvent(el, 'touchstart');
+    await triggerEvent(el, 'touchstart');
 
-    next(() => {
-      assert.ok(
-        el.classList.contains('is-holding'),
-        'Class added while holding'
-      );
-      triggerEvent(el, 'touchend');
+    assert.ok(
+      el.classList.contains('is-holding'),
+      'Class added while holding'
+    );
 
-      next(() => {
-        assert.ok(
-          el.classList.contains('is-complete'),
-          'Class added when complete'
-        );
-        done();
-      });
-    });
+    await triggerEvent(el, 'touchend');
+
+    assert.ok(
+      el.classList.contains('is-complete'),
+      'Class added when complete'
+    );
   });
 });
